@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "./components/Card";
+import { Hourglass } from 'react-loader-spinner'
 
 const App = () => {
   const [userData, setUserData] = useState([]);
@@ -19,9 +20,21 @@ const App = () => {
   }, [index]);
 
   let printUserData = (
-    <h3 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-bold">
-      Please wait...
-    </h3>
+    // <h3 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-bold">
+    //   loading...
+    // </h3>
+    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <Hourglass
+      height="80"
+      width="80"
+      color="#ffffff"
+      ariaLabel="audio-loading"
+      wrapperStyle={{color: "white"}}
+      wrapperClass="wrapper-class"
+      visible={true}
+    />
+    </div>
+    
   );
 
   if (userData.length > 0) {
